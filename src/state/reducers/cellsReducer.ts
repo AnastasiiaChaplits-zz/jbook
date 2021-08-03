@@ -1,3 +1,4 @@
+import { act } from 'react-dom/test-utils';
 import { ActionType } from '../action-types';
 import { Action } from '../actions';
 import { Cell } from '../cell';
@@ -22,7 +23,18 @@ const reducer = (
   state: CellsState = initialState,
   action: Action
 ): CellsState => {
-  return state;
+  switch (action.type) {
+    case ActionType.UPDATE_CELL:
+      return state;
+    case ActionType.DELETE_CELL:
+      return state;
+    case ActionType.MOVE_CELL:
+      return state;
+    case ActionType.INSERT_CELL_BEFORE:
+      return state;
+    default:
+      return state;
+  }
 };
 
 export default reducer;
