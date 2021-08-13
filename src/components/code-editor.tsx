@@ -1,9 +1,9 @@
+import './code-editor.css';
+import './syntax.css';
 import { useRef } from 'react';
 import MonacoEditor, { EditorDidMount } from '@monaco-editor/react';
 import prettier from 'prettier';
 import parser from 'prettier/parser-babel';
-import './code-editor.css';
-import './syntax.css';
 import codeShift from 'jscodeshift';
 import Highlighter from 'monaco-jsx-highlighter';
 
@@ -52,7 +52,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ onChange, initialValue }) => {
       })
       .replace(/\n$/, '');
 
-    // set formatted value back in editor
+    // set the formatted value back in the editor
     editorRef.current.setValue(formatted);
   };
 
@@ -67,9 +67,9 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ onChange, initialValue }) => {
       <MonacoEditor
         editorDidMount={onEditorDidMount}
         value={initialValue}
-        height='100%'
-        language='javascript'
         theme='dark'
+        language='javascript'
+        height='100%'
         options={{
           wordWrap: 'on',
           minimap: { enabled: false },
